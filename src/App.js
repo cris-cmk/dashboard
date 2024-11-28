@@ -1,22 +1,24 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Login from './features/auth/Login';
 import Register from './features/auth/Register';
+import Dashboard from './features/dashboard/Dashboard';
 
 function App() {
-  const { token } = useSelector((state) => state.auth);
-
   return (
-    <div className="bg-gray-100 min-h-screen">
-      {token ? (
-        <div className="flex flex-col items-center justify-center h-screen">
-          <h1 className="text-2xl font-bold">Welcome!</h1>
-          <p>Your token: {token}</p>
-        </div>
-      ) : (
-        <Login />
-      )}
-    </div>
+    <Router>
+      <div className="bg-gray-100 min-h-screen">
+        <nav className="flex justify-center p-4 bg-blue-500 text-white">
+          <Link to="/login" className="px-4 hover:underline">Login</Link>
+          <Link to="/register" className="px-4 hover:underline">Register</Link>
+        </nav>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

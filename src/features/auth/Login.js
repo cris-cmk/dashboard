@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { loginUser } from './authActions';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Initialize useNavigate
   const { loading, error } = useSelector((state) => state.auth);
 
   const [credentials, setCredentials] = useState({
@@ -20,7 +22,13 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginUser(credentials));
+
+    // Dispatch loginUser action and navigate on success
+    dispatch(loginUser(credentials)).then(() => {
+      navigate('/dashboard'); // Navigate to dashboard on success
+    }).catch((err) => {
+      console.error('Login failed:', err);
+    });
   };
 
   return (

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { registerUser } from './authActions';
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Initialize useNavigate
   const { loading, error } = useSelector((state) => state.auth);
 
   const [credentials, setCredentials] = useState({
@@ -18,9 +20,14 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(registerUser(credentials));
+
+    // Dispatch the registerUser action
+    dispatch(registerUser(credentials)).then(() => {
+      // Navigate to the dashboard after successful registration
+      navigate('/dashboard');
+    });
   };
 
   return (
