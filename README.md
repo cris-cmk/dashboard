@@ -1,70 +1,93 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Authentication App
 
-## Available Scripts
+This project is a simple authentication app built using **React**, **Redux**, **Jest**, and **TailwindCSS**. It integrates with the [Reqres API](https://reqres.in/) for user registration and login. The app allows users to register, log in, and access a protected dashboard page.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Login & Registration**: Users can register and log in using the Reqres API.
+- **Redux**: Manages the app’s authentication state, including user tokens.
+- **Protected Routes**: If a user is logged in, they can access the dashboard; otherwise, they are redirected to the login page.
+- **Testing**: Jest is used to test the Redux reducers and actions.
+- **Responsive Design**: TailwindCSS is used for styling to ensure the app looks great on all devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React** - JavaScript library for building user interfaces.
+- **Redux** - State management for handling global application state.
+- **Axios** - Promise-based HTTP client for making API requests.
+- **Jest** - JavaScript testing framework for unit tests.
+- **TailwindCSS** - Utility-first CSS framework for styling.
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Follow the steps below to set up the project locally.
 
-### `npm run build`
+### 1. Clone the repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/cris-cmk/week-2.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Install dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+In the project directory, run the following command to install the required dependencies:
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. Run the app
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Start the development server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This will open the app in your browser at `http://localhost:3000`.
 
-## Learn More
+### 4. Run the tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run the tests for the Redux slice and actions, use the following command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm test
+```
 
-### Code Splitting
+This will run Jest and output the test results in the terminal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+- **Login**: Users can log in with valid credentials.
+  - Example credentials:
+    - Email: `eve.holt@reqres.in`
+    - Password: `cityslicka`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Register**: Users who don't have an account can register via the registration page.
+- **Dashboard**: Once logged in, users will be directed to the dashboard page where the JWT token is displayed.
 
-### Making a Progressive Web App
+## File Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+/src
+  /components
+    - Login.js
+    - Register.js
+    - Dashboard.js
+  /redux
+    - authSlice.js
+    - authSlice.test.js
+  /App.js
+  /index.js
+  /styles.css
+  /routes.js
+```
 
-### Advanced Configuration
+- **Login.js**: Contains the login form and logic to authenticate users.
+- **Register.js**: Contains the registration form to create new users.
+- **Dashboard.js**: Displays a message and the JWT token if the user is logged in.
+- **authSlice.js**: Contains Redux slice for handling authentication state.
+- **authSlice.test.js**: Contains Jest tests for the authentication Redux slice.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
