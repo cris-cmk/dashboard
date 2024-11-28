@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { authRequest, authSuccess, authFailure } from './authSlice';
+import { authRequest, authSuccess, authFailure } from '../../redux/authSlice';
 
 const BASE_URL = 'https://reqres.in/api';
 
@@ -21,7 +21,7 @@ export const loginUser = (credentials) => async (dispatch) => {
   } catch (error) {
     console.error('Login Error:', error.response?.data || error.message);
     dispatch(authFailure(error.response?.data?.error || 'Login failed.'));
-    return Promise.reject(error);
+    
   }
 };
 export const registerUser = (credentials) => async (dispatch) => {
@@ -36,8 +36,8 @@ export const registerUser = (credentials) => async (dispatch) => {
     // Return success to allow chaining
     return Promise.resolve(response.data);
   } catch (error) {
-    dispatch(authFailure(error.response?.data?.error || 'Registration failed.'));
-    return Promise.reject(error);
+    dispatch(authFailure(error.response?.data?.error + " This is a demo account kindly use this credentials to register email : eve.holt@reqres.in , password : password123" || 'Registration failed.'));
+  
   }
 };
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../auth/authSlice'; // Import the logout action
+import { logout } from '../../redux/authSlice'; // Import the logout action
 
 const Dashboard = () => {
   const token = useSelector((state) => state.auth.token); // Access the token from Redux

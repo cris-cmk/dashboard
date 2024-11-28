@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from './authActions';
+import { Link } from 'react-router-dom'; // Import the Link component
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -70,6 +71,16 @@ const Login = () => {
         >
           {loading ? 'Logging in...' : 'Login'}
         </button>
+ {        /* Register link */}
+          <div className="mt-4 text-center">
+          <p className="text-gray-600">
+            Don't have an account?{' '}
+            <Link to="/register" className="text-blue-500 hover:text-blue-700">
+              Register here
+            </Link>
+          </p>
+        </div>
+        
       </form>
     </div>
   );
