@@ -19,6 +19,10 @@ This project is a simple authentication app built using **React**, **Redux**, **
 - **Jest** - JavaScript testing framework for unit tests.
 - **TailwindCSS** - Utility-first CSS framework for styling.
 
+### Live Website
+
+live website is accessible via - https://cris-cmk.github.io/dashboard
+
 ## Getting Started
 
 Follow the steps below to set up the project locally.
