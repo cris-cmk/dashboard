@@ -6,7 +6,7 @@ const BASE_URL = 'https://reqres.in/api';
 export const loginUser = (credentials) => async (dispatch) => {
   dispatch(authRequest());
   try {
-    const response = await axios.post('https://reqres.in/api/login', {
+    const response = await axios.post(`${BASE_URL}/login`, {
       email: credentials.email,
       password: credentials.password,
     });
@@ -27,7 +27,7 @@ export const loginUser = (credentials) => async (dispatch) => {
 export const registerUser = (credentials) => async (dispatch) => {
   dispatch(authRequest());
   try {
-    const response = await axios.post('https://reqres.in/api/register', {
+    const response = await axios.post(`${BASE_URL}/register`, {
       email: credentials.email,
       password: credentials.password,
     });
